@@ -74,7 +74,7 @@ There are a lot of props that can be configured for the datagrid. We'll try to c
 
 #### Basic
 
- * `dataSource`: Array/String/Function/Promise - for local data, an array of object to render in the grid. For remote data, a string url, or a function that returns a promise.
+ * `dataSource`: Array/String/Function/Promise - for local data, an array of either objects or arrays to render in the grid. For remote data, a string url, or a function that returns a promise.
  * `idProperty`: String - the name of the property where the id is found for each object in the data array
  * `columns`: Array - an array of columns that are going to be rendered in the grid
 
