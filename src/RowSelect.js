@@ -48,9 +48,9 @@ module.exports = {
         return index
     },
 
-    notifySelection: function(selected, data){
+    notifySelection: function(selected, data, index){
         if (typeof this.props.onSelectionChange == 'function'){
-            this.props.onSelectionChange(selected, data)
+            this.props.onSelectionChange(selected, data, index)
         }
 
         if (!hasOwn(this.props, 'selected')){
@@ -61,7 +61,7 @@ module.exports = {
         }
     },
 
-    handleSingleSelection: function(data, event){
+    handleSingleSelection: function(data, event, index){
         var props = this.p
 
         var rowSelected = this.isRowSelected(data)
@@ -77,7 +77,7 @@ module.exports = {
                             data[props.idProperty]:
                             null
 
-        this.notifySelection(selectedId, data)
+        this.notifySelection(selectedId, data, index)
     },
 
 
@@ -112,7 +112,7 @@ module.exports = {
             }
         })
 
-        this.notifySelection(map, data)
+        this.notifySelection(map, data, selIndex)
     },
 
     handleMultiSelectionRowToggle: function(data, event){
@@ -129,7 +129,7 @@ module.exports = {
             clone[id] = data
         }
 
-        this.notifySelection(clone, data)
+        this.notifySelection(clone, data, event)
 
         return isSelected
     },
@@ -146,7 +146,7 @@ module.exports = {
         var multiSelect = this.isMultiSelect()
 
         if (!multiSelect){
-            this.handleSingleSelection(rowProps.data, event)
+            this.handleSingleSelection(rowProps.data, event, rowProps.index)
             return
         }
 
