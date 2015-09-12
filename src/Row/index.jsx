@@ -14,7 +14,10 @@ module.exports = React.createClass({
   displayName: 'ReactDataGrid.Row',
 
   propTypes: {
-    data   : React.PropTypes.object,
+    data: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array
+    ]),
     columns: React.PropTypes.array,
     index  : React.PropTypes.number
   },
